@@ -1,0 +1,144 @@
+:root{
+ --bg:#020617;
+ --card:#0f172a;
+ --glass:rgba(255,255,255,0.05);
+ --border:rgba(255,255,255,0.08);
+ --text:#e2e8f0;
+}
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+body{
+ font-family:system-ui;
+ background:radial-gradient(circle at top left,#4f46e5,#020617);
+ color:var(--text);
+}
+
+/* HEADER */
+.header{
+ text-align:center;
+ padding:40px 20px;
+}
+
+.header h1{
+ font-size:40px;
+ background:linear-gradient(135deg,#6366f1,#22d3ee);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+/* LAYOUT */
+.container{
+ display:flex;
+ max-width:1200px;
+ margin:auto;
+ gap:20px;
+ padding:20px;
+}
+
+/* SIDEBAR */
+.sidebar{
+ width:220px;
+ display:flex;
+ flex-direction:column;
+ gap:12px;
+}
+
+.sidebar button{
+ padding:12px;
+ border-radius:12px;
+ border:1px solid var(--border);
+ background:var(--glass);
+ color:var(--text);
+ cursor:pointer;
+ transition:.2s;
+}
+
+.sidebar button:hover{
+ background:linear-gradient(135deg,#6366f1,#22d3ee);
+}
+
+/* MAIN */
+.main{
+ flex:1;
+ background:var(--card);
+ border-radius:20px;
+ padding:20px;
+ border:1px solid var(--border);
+}
+
+/* TOPBAR */
+.topbar{
+ display:flex;
+ justify-content:space-between;
+ margin-bottom:15px;
+}
+
+#search{
+ padding:10px;
+ border-radius:10px;
+ border:none;
+ background:#020617;
+ color:#fff;
+}
+
+.stats{
+ display:flex;
+ gap:15px;
+ font-size:13px;
+ opacity:.7;
+}
+
+/* TABLE */
+#main{
+ margin-top:15px;
+}
+
+.row{
+ display:flex;
+ justify-content:space-between;
+ padding:12px;
+ border-radius:10px;
+ margin-bottom:8px;
+ background:rgba(255,255,255,0.03);
+}
+
+.row:hover{
+ transform:translateX(4px);
+}
+
+/* PAGINATION */
+.pagination{
+ margin-top:15px;
+ display:flex;
+ justify-content:center;
+ gap:10px;
+}
+
+.pagination button{
+ padding:8px 12px;
+ border:none;
+ border-radius:8px;
+ cursor:pointer;
+}
+
+/* CHART */
+canvas{
+ background:#020617;
+ border-radius:12px;
+ margin-top:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+ .container{
+  flex-direction:column;
+ }
+ .sidebar{
+  width:100%;
+ }
+}

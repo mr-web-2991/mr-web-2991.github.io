@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Player SaaS</title>
+
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<rect width="100" height="100" rx="20" fill="%23020617"/>
+<polygon points="40,30 75,50 40,70" fill="%236366f1"/>
+</svg>'>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="player" id="player">
+
+  <div class="video-wrapper" id="wrapper">
+    <video id="video" class="screen" src="videos/gone.mp4" poster="img/poster.png"></video>
+    <div id="overlay" class="overlay">▶</div>
+  </div>
+
+  <div class="controls" id="controls">
+
+    <button id="play" class="btn">▶</button>
+    <button id="stop" class="btn">■</button>
+
+    <input id="volume" type="range" min="0" max="1" step="0.01" value="1">
+
+    <select id="speed">
+      <option value="0.5">0.5x</option>
+      <option value="1" selected>1x</option>
+      <option value="1.5">1.5x</option>
+      <option value="2">2x</option>
+    </select>
+
+    <div class="progress-container" id="progress-container">
+      <input type="range" id="progress" min="0" max="100" step="0.1" value="0">
+      <div id="progress-bar"></div>
+      <div id="preview" class="preview">00:00</div>
+    </div>
+
+    <span id="timestamp">00:00</span>
+
+    <button id="pip" class="btn">📺</button>
+    <button id="fullscreen" class="btn">⛶</button>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

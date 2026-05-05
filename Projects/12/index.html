@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav id="navbar">
+  <div class="logo">
+    <img src="https://randomuser.me/api/portraits/men/76.jpg">
+  </div>
+
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Portfolio</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <button id="toggle" class="toggle">☰</button>
+
+  <h1>Next Gen Landing</h1>
+  <p>Modern SaaS Experience</p>
+
+  <button id="open" class="cta">Get Started</button>
+</header>
+
+<section class="container">
+  <h2>About</h2>
+  <p>Premium landing experience built with modern frontend standards.</p>
+
+  <h2>Benefits</h2>
+  <ul>
+    <li>Performance Optimized</li>
+    <li>Secure UX</li>
+    <li>Scalable Architecture</li>
+  </ul>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+
+    <button id="close" class="close">×</button>
+
+    <h3>Create Account</h3>
+
+    <form id="form" novalidate>
+
+      <input id="name" placeholder="Name" required>
+      <small></small>
+
+      <input id="email" type="email" placeholder="Email" required>
+      <small></small>
+
+      <input id="password" type="password" placeholder="Password" required>
+      <small></small>
+
+      <input id="password2" type="password" placeholder="Confirm Password" required>
+      <small></small>
+
+      <button type="submit">Sign Up</button>
+
+    </form>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

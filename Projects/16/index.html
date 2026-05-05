@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Store Pro</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+
+    <div class="logo">
+      <span class="logo-icon">◆</span>
+      <span class="logo-text">StorePro</span>
+    </div>
+
+    <input type="text" id="search" placeholder="Search products..." />
+
+    <div class="cart" id="cartButton">
+      🛒 <span id="cartCount">0</span>
+    </div>
+
+  </nav>
+
+  <div class="layout">
+
+    <!-- FILTER -->
+    <aside class="filters">
+      <h2>Filters</h2>
+
+      <label><input type="checkbox" class="check" id="cameras"> Cameras</label>
+      <label><input type="checkbox" class="check" id="smartphones"> Phones</label>
+      <label><input type="checkbox" class="check" id="games"> Games</label>
+      <label><input type="checkbox" class="check" id="televisions"> TVs</label>
+    </aside>
+
+    <!-- PRODUCTS -->
+    <main id="products-wrapper" class="products"></main>
+
+  </div>
+
+</div>
+
+<!-- CART DRAWER -->
+<div id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h2>Cart</h2>
+    <button id="closeCart">✖</button>
+  </div>
+
+  <div id="cartItems"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

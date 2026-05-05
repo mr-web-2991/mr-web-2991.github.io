@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wealth SaaS Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <header class="header">
+    <h1>Wealth Analytics</h1>
+    <p>Production SaaS Dashboard</p>
+  </header>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <button id="add-user">➕ Add User</button>
+      <button id="double">⚡ Double</button>
+      <button id="millionaires">💎 Millionaires</button>
+      <button id="sort">📊 Sort</button>
+      <button id="reset">♻ Reset</button>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- TOP -->
+      <div class="topbar">
+        <input id="search" placeholder="Search user...">
+        <div class="stats">
+          <span id="count"></span>
+          <span id="avg"></span>
+          <span id="total"></span>
+        </div>
+      </div>
+
+      <!-- CHART -->
+      <canvas id="chart" height="120"></canvas>
+
+      <!-- TABLE -->
+      <div id="main"></div>
+
+      <!-- PAGINATION -->
+      <div class="pagination">
+        <button id="prev">Prev</button>
+        <span id="page"></span>
+        <button id="next">Next</button>
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

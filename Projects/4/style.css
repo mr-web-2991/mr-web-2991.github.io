@@ -1,0 +1,155 @@
+:root{
+ --bg:#020617;
+ --card:#0f172a;
+ --glass:rgba(255,255,255,0.05);
+ --border:rgba(255,255,255,0.08);
+ --accent:#22d3ee;
+ --text:#e2e8f0;
+}
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+body{
+ font-family:system-ui;
+ background:radial-gradient(circle at top left,#4f46e5,#020617);
+ color:var(--text);
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ min-height:100vh;
+}
+
+/* SCREEN READER */
+.sr-only{
+ position:absolute;
+ width:1px;
+ height:1px;
+ overflow:hidden;
+ clip:rect(0,0,0,0);
+}
+
+/* CARD */
+.card{
+ width:380px;
+ padding:30px;
+ border-radius:20px;
+ background:var(--card);
+ border:1px solid var(--border);
+
+ /* ✅ ORDER FIXED */
+ -webkit-backdrop-filter:blur(20px);
+ backdrop-filter:blur(20px);
+
+ box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+
+/* TITLE */
+h1{
+ text-align:center;
+ margin:10px 0;
+ background:linear-gradient(135deg,#6366f1,#22d3ee);
+
+ -webkit-background-clip:text;
+ background-clip:text;
+
+ color:transparent;
+}
+
+p{
+ text-align:center;
+ opacity:.6;
+ margin-bottom:20px;
+}
+
+.money-img{
+ width:80px;
+ display:block;
+ margin:auto;
+}
+
+/* SELECT */
+select{
+ background:#020617;
+ color:white;
+ border:none;
+ font-size:16px;
+ padding:8px;
+ border-radius:8px;
+ cursor:pointer;
+}
+
+select option{
+ color:#000;
+ background:#fff;
+}
+
+/* INPUT */
+input{
+ background:none;
+ border:none;
+ color:white;
+ font-size:24px;
+ text-align:right;
+ width:120px;
+}
+
+input::placeholder{
+ color:rgba(255,255,255,0.3);
+}
+
+/* BOX */
+.currency{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin:20px 0;
+ padding:12px;
+ border-radius:12px;
+ background:var(--glass);
+ border:1px solid var(--border);
+}
+
+/* SWAP */
+.swap{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin:10px 0;
+}
+
+#swap{
+ border:none;
+ background:linear-gradient(135deg,#6366f1,#22d3ee);
+ color:white;
+ width:50px;
+ height:50px;
+ border-radius:14px;
+ cursor:pointer;
+ transition:.3s cubic-bezier(.2,.8,.2,1);
+}
+
+#swap:hover{
+ transform:rotate(180deg) scale(1.1);
+ box-shadow:0 10px 30px rgba(99,102,241,0.4);
+}
+
+#swap:active{
+ transform:scale(0.9);
+}
+
+#rate{
+ font-size:14px;
+ opacity:.7;
+}
+
+/* STATUS */
+.status{
+ margin-top:10px;
+ text-align:center;
+ font-size:12px;
+ opacity:.6;
+}

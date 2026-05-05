@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music SaaS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark">
+
+<div class="app">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <h1>🎧 Music SaaS</h1>
+
+    <!-- FIXED THEME SWITCHER -->
+    <div class="theme-switcher">
+      <button id="themeBtn">
+        <span id="themeLabel">Dark Pro</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div id="themeMenu" class="theme-menu">
+        <div data-theme="dark">Dark Pro</div>
+        <div data-theme="glass">Glass</div>
+        <div data-theme="premium">Premium</div>
+        <div data-theme="pink">Pink</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search song (e.g. hello adele)" />
+    <button id="searchBtn">Search</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" class="results"></div>
+
+  <!-- PLAYER -->
+  <div class="player">
+    <img id="cover" src="" alt="cover" />
+    <div class="info">
+      <h3 id="title">No Song</h3>
+      <audio id="audio" controls></audio>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

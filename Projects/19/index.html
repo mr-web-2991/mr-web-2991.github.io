@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Voice SaaS</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header>
+    <h1>🧠 Voice Assistant</h1>
+
+    <button id="toggle" class="primary-btn">
+      Open Voice Panel
+    </button>
+  </header>
+
+  <!-- GRID -->
+  <main id="grid"></main>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-card">
+
+      <button id="close" class="close-btn" aria-label="Close">✕</button>
+
+      <h3>Select Voice</h3>
+
+      <!-- ✅ FIX: label + id -->
+      <label for="voices" class="sr-only">Choose voice</label>
+      <select id="voices" aria-label="Voice selector"></select>
+
+      <textarea id="text" placeholder="Type something to speak..."></textarea>
+
+      <button id="read" class="primary-btn">
+        Speak
+      </button>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

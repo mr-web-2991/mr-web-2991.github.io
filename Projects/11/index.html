@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <header class="header">
+    <h1>Flashcards</h1>
+
+    <div class="actions">
+      <button id="show" class="btn primary">+ Add Card</button>
+      <button id="clear" class="btn danger">Clear</button>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div id="cards-container" class="cards"></div>
+
+    <div class="navigation">
+      <button id="prev">←</button>
+      <span id="current">0/0</span>
+      <button id="next">→</button>
+    </div>
+
+    <div id="empty" class="empty">No cards yet</div>
+
+  </main>
+
+</div>
+
+<!-- ADD PANEL -->
+<div id="add-container" class="panel">
+  <div class="panel-content">
+
+    <div class="panel-header">
+      <h2>Add Card</h2>
+      <button id="hide">✕</button>
+    </div>
+
+    <textarea id="question" placeholder="Question..."></textarea>
+    <textarea id="answer" placeholder="Answer..."></textarea>
+
+    <button id="add-card" class="btn primary full">Add Card</button>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

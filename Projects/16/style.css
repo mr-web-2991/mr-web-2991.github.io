@@ -1,0 +1,169 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui;
+}
+
+body{
+  background:linear-gradient(135deg,#020617,#0f172a);
+  color:#fff;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  background:rgba(255,255,255,0.05);
+
+  /* FIX Safari */
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+}
+
+/* 🔥 LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:bold;
+}
+
+.logo-icon{
+  color:#6366f1;
+  font-size:20px;
+}
+
+.logo-text{
+  font-size:20px;
+
+  background:linear-gradient(90deg,#6366f1,#22d3ee);
+
+  /* FIX WARNING */
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+}
+
+/* SEARCH */
+#search{
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  width:250px;
+  outline:none;
+}
+
+/* CART */
+.cart{
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* LAYOUT */
+.layout{
+  display:flex;
+}
+
+/* FILTER */
+.filters{
+  width:200px;
+  padding:20px;
+}
+
+.filters label{
+  display:block;
+  margin:10px 0;
+  cursor:pointer;
+}
+
+/* PRODUCTS */
+.products{
+  flex:1;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+/* CARD */
+.item{
+  background:rgba(255,255,255,0.05);
+  border-radius:16px;
+  padding:16px;
+
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+
+  transition:.3s;
+}
+
+.item:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.item img{
+  width:100%;
+  height:140px;
+  object-fit:contain;
+}
+
+.item p{
+  font-size:15px;
+}
+
+.item strong{
+  color:#4ade80;
+}
+
+/* BUTTON */
+.status{
+  margin-top:auto;
+  padding:12px;
+  text-align:center;
+  border-radius:12px;
+  background:#6366f1;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.status:hover{
+  background:#4f46e5;
+}
+
+.status.added{
+  background:#ef4444;
+}
+
+/* CART DRAWER */
+.cart-drawer{
+  position:fixed;
+  right:-350px;
+  top:0;
+  width:350px;
+  height:100%;
+  background:#020617;
+  padding:20px;
+  transition:.4s;
+  z-index:1000;
+}
+
+.cart-drawer.open{
+  right:0;
+}
+
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+#cartItems div{
+  padding:10px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}

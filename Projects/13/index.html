@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cinema Booking Pro</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="app">
+
+  <div class="topbar">
+    <h1>🎬 Cinema Booking</h1>
+
+    <select id="movie" aria-label="Select Movie">
+      <option value="15">Avengers: Doomsday ($15)</option>
+      <option value="14">Dune: Part Three ($14)</option>
+      <option value="13">Spider-Man: Brand New Day ($13)</option>
+      <option value="12">Toy Story 5 ($12)</option>
+      <option value="16">The Mandalorian & Grogu ($16)</option>
+      <option value="11">Resident Evil 2026 ($11)</option>
+      <option value="10">Practical Magic 2 ($10)</option>
+    </select>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item">
+      <span class="seat"></span>
+      <small>Available</small>
+    </div>
+    <div class="legend-item">
+      <span class="seat selected"></span>
+      <small>Selected</small>
+    </div>
+    <div class="legend-item">
+      <span class="seat occupied"></span>
+      <small>Occupied</small>
+    </div>
+  </div>
+
+  <!-- CINEMA -->
+  <div class="cinema">
+
+    <!-- SCREEN -->
+    <div class="screen">
+      <span id="screen-text"></span>
+    </div>
+
+    <div id="seats" class="seats"></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <p>Seats: <span id="count">0</span></p>
+    <p>Total: $<span id="total">0</span></p>
+    <button id="reset">Reset</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

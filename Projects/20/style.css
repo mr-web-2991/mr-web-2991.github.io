@@ -1,0 +1,149 @@
+:root{
+  --bg1:#0f172a;
+  --bg2:#020617;
+  --primary:#6366f1;
+  --accent:#22d3ee;
+  --glass:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.12);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(circle at top, var(--bg1), var(--bg2));
+  color:#fff;
+}
+
+.app{
+  width:100%;
+  max-width:520px;
+  padding:20px;
+}
+
+/* TOPBAR */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.logo{
+  font-weight:800;
+  font-size:20px;
+  background: linear-gradient(90deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* SELECT FIX 🔥 */
+.select{
+  padding:10px 16px;
+  border-radius:12px;
+  border:1px solid var(--border);
+
+  background:#0f172a; /* FIX contrast */
+  color:#fff;
+
+  font-weight:500;
+  cursor:pointer;
+
+  transition:0.2s;
+}
+
+.select:hover{
+  border-color:var(--primary);
+}
+
+/* مهم: يخلي dropdown واضح */
+.select option{
+  background:#0f172a;
+  color:#fff;
+}
+
+/* CARD */
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+
+  /* FIX Safari error */
+  -webkit-backdrop-filter:blur(20px);
+  backdrop-filter:blur(20px);
+
+  box-shadow:0 30px 60px rgba(0,0,0,0.5);
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.stat{
+  background:rgba(255,255,255,0.08);
+  padding:10px 16px;
+  border-radius:12px;
+  font-size:14px;
+}
+
+/* WORD */
+#word{
+  font-size:40px;
+  margin:20px 0;
+  font-weight:800;
+}
+
+/* INPUT */
+input{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+  text-align:center;
+  font-size:16px;
+}
+
+input::placeholder{
+  color:#aaa;
+}
+
+input:focus{
+  box-shadow:0 0 0 2px var(--primary);
+}
+
+/* END */
+.end{
+  margin-top:20px;
+  padding:20px;
+  border-radius:15px;
+  background:rgba(0,0,0,0.6);
+}
+
+.hidden{
+  display:none;
+}
+
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}

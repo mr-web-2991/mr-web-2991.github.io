@@ -1,0 +1,138 @@
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+body{
+ font-family:system-ui;
+ background: radial-gradient(circle at top left,#4f46e5,#020617);
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:#fff;
+}
+
+.player{
+ width:900px;
+ max-width:95%;
+ position:relative;
+}
+
+/* VIDEO */
+.video-wrapper{
+ position:relative;
+ border-radius:20px;
+ overflow:hidden;
+ box-shadow:0 40px 100px rgba(0,0,0,.7);
+}
+
+.screen{
+ width:100%;
+ display:block;
+}
+
+/* OVERLAY */
+.overlay{
+ position:absolute;
+ inset:0;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:70px;
+ background:rgba(0,0,0,.4);
+ opacity:0;
+ transition:.3s;
+ cursor:pointer;
+}
+
+/* CONTROLS */
+.controls{
+ margin-top:10px;
+ display:flex;
+ align-items:center;
+ gap:10px;
+ padding:12px;
+ border-radius:16px;
+ background:rgba(255,255,255,0.05);
+ backdrop-filter:blur(20px);
+ transition:.3s;
+}
+
+.player.hide .controls{
+ opacity:0;
+ transform:translateY(20px);
+}
+
+/* BUTTON */
+.btn{
+ border:none;
+ padding:8px 12px;
+ border-radius:10px;
+ cursor:pointer;
+ background:#111;
+ color:#fff;
+ transition:.2s;
+}
+
+.btn:hover{
+ transform:scale(1.1);
+ background:linear-gradient(135deg,#6366f1,#22d3ee);
+}
+
+/* RANGE */
+input[type=range]{
+ cursor:pointer;
+}
+
+/* PROGRESS */
+.progress-container{
+ flex:1;
+ position:relative;
+}
+
+#progress{
+ width:100%;
+ height:6px;
+ background:rgba(255,255,255,0.1);
+ border-radius:10px;
+}
+
+#progress-bar{
+ position:absolute;
+ top:0;
+ left:0;
+ height:6px;
+ width:0%;
+ background:linear-gradient(90deg,#6366f1,#22d3ee);
+ border-radius:10px;
+}
+
+/* PREVIEW */
+.preview{
+ position:absolute;
+ top:-30px;
+ transform:translateX(-50%);
+ background:#111;
+ padding:4px 8px;
+ border-radius:6px;
+ font-size:12px;
+ opacity:0;
+ pointer-events:none;
+}
+
+/* TIMESTAMP */
+#timestamp{
+ min-width:60px;
+ text-align:right;
+ color:#94a3b8;
+}
+
+select{
+ background:#111;
+ color:#fff;
+ border:none;
+ padding:6px;
+ border-radius:8px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auth Form Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <form id="form" class="card" novalidate>
+
+    <h2>Create Account</h2>
+
+    <!-- Username -->
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" type="text" placeholder="Enter username" autocomplete="username">
+      <small></small>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Enter email" autocomplete="email">
+      <small></small>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Enter password" autocomplete="new-password">
+      <div class="strength">
+        <span></span>
+      </div>
+      <small></small>
+    </div>
+
+    <!-- Confirm -->
+    <div class="form-group">
+      <label for="password2">Confirm Password</label>
+      <input id="password2" type="password" placeholder="Confirm password">
+      <small></small>
+    </div>
+
+    <button type="submit" class="btn">
+      <span>Sign Up</span>
+    </button>
+
+    <div id="success" class="success-message"></div>
+
+  </form>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

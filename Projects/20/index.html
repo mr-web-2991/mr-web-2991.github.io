@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Speed Typer Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="logo">⚡ Speed Typer</div>
+
+    <div class="controls">
+      <label for="difficulty" class="sr-only">Difficulty</label>
+      <select id="difficulty" class="select" aria-label="Difficulty level">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="card">
+
+    <div class="stats">
+      <div class="stat">⏱ <span id="time">10</span>s</div>
+      <div class="stat">🧠 <span id="score">0</span></div>
+    </div>
+
+    <p class="label">Type the word</p>
+
+    <h1 id="word"></h1>
+
+    <input id="text" type="text" autocomplete="off" placeholder="Start typing..." />
+
+    <div id="end" class="end hidden"></div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

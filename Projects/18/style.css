@@ -1,0 +1,129 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#020617,#0f172a);
+  color:#fff;
+}
+
+/* APP */
+.app{
+  text-align:center;
+  max-width:420px;
+  width:100%;
+}
+
+/* HEADER */
+header h1{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+header p{
+  opacity:.7;
+  margin-bottom:30px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:20px;
+
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* MIC */
+.mic-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+.mic{
+  font-size:40px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.mic.active{
+  color:#22c55e;
+  transform:scale(1.2);
+}
+
+/* WAVEFORM */
+.wave{
+  width:120px;
+  height:6px;
+  background:linear-gradient(90deg,#6366f1,#22c55e);
+  border-radius:10px;
+  opacity:0;
+}
+
+.wave.active{
+  opacity:1;
+  animation:waveAnim 0.8s infinite ease-in-out;
+}
+
+@keyframes waveAnim{
+  0%{transform:scaleX(1)}
+  50%{transform:scaleX(1.5)}
+  100%{transform:scaleX(1)}
+}
+
+/* STATUS */
+#status{
+  font-size:14px;
+  opacity:.6;
+}
+
+/* MESSAGE */
+.msg{
+  font-size:20px;
+  min-height:40px;
+}
+
+/* INPUT */
+input{
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  outline:none;
+  background:#0f172a;
+  color:#fff;
+}
+
+/* BUTTON */
+button{
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:#6366f1;
+  color:#fff;
+  transition:.3s;
+}
+
+button:hover{
+  background:#4f46e5;
+}
+
+/* COLORS */
+.good{ color:#22c55e; }
+.bad{ color:#ef4444; }

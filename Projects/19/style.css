@@ -1,0 +1,144 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui;
+}
+
+body{
+  background:linear-gradient(135deg,#020617,#0f172a);
+  color:#fff;
+}
+
+/* APP */
+.app{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+header h1{
+  font-size:26px;
+}
+
+/* BUTTON */
+.primary-btn{
+  background:linear-gradient(135deg,#6366f1,#22c55e);
+  border:none;
+  padding:12px 20px;
+  border-radius:12px;
+  color:white;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.primary-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(99,102,241,.4);
+}
+
+/* GRID */
+main{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.05);
+  border-radius:20px;
+  overflow:hidden;
+
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+
+  transition:.3s;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
+}
+
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.card p{
+  padding:15px;
+  text-align:center;
+  font-weight:bold;
+}
+
+/* ACTIVE */
+.card.active{
+  outline:2px solid #6366f1;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,.6);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+}
+
+.modal.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* MODAL CARD */
+.modal-card{
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:20px;
+  width:350px;
+
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+/* CLOSE */
+.close-btn{
+  background:none;
+  border:none;
+  color:white;
+  font-size:18px;
+  align-self:flex-end;
+  cursor:pointer;
+}
+
+/* INPUTS */
+select, textarea{
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  outline:none;
+}
+
+textarea{
+  resize:none;
+  height:100px;
+}

@@ -1,0 +1,156 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  transition:.4s;
+}
+
+/* THEMES */
+body.dark{
+  --bg:#020617;
+  --card:#0f172a;
+  --text:#e2e8f0;
+  --accent:#6366f1;
+}
+
+body.glass{
+  --bg:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  --card:rgba(255,255,255,0.1);
+  --text:#fff;
+  --accent:#00d4ff;
+}
+
+body.premium{
+  --bg:#020617;
+  --card:#020617;
+  --text:#e2e8f0;
+  --accent:#7c3aed;
+}
+
+/* 🔥 PINK */
+body.pink{
+  --bg:linear-gradient(135deg,#1f002b,#3b003b);
+  --card:rgba(255,182,193,0.08);
+  --text:#ffd6e7;
+  --accent:#ff4da6;
+}
+
+/* LAYOUT */
+.app{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+/* TOPBAR */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+/* SEARCH */
+.search-box{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.search-box input{
+  flex:1;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+}
+
+.search-box button{
+  padding:12px 18px;
+  border:none;
+  background:var(--accent);
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* RESULTS */
+.results div{
+  padding:10px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  cursor:pointer;
+}
+
+.results div:hover{
+  color:var(--accent);
+}
+
+/* PLAYER */
+.player{
+  margin-top:30px;
+  display:flex;
+  gap:20px;
+  background:var(--card);
+  padding:20px;
+  border-radius:15px;
+}
+
+.player img{
+  width:80px;
+  height:80px;
+  border-radius:10px;
+  object-fit:cover;
+}
+
+/* 🎯 THEME SWITCHER FIX */
+.theme-switcher{
+  position:relative;
+}
+
+#themeBtn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:var(--card);
+  color:var(--text);
+  cursor:pointer;
+}
+
+#themeBtn:hover{
+  background:var(--accent);
+  color:#fff;
+}
+
+.theme-menu{
+  position:absolute;
+  top:120%;
+  right:0;
+  background:var(--card);
+  border-radius:10px;
+  padding:6px;
+  display:none;
+  min-width:150px;
+}
+
+.theme-menu div{
+  padding:10px;
+  cursor:pointer;
+  border-radius:6px;
+}
+
+.theme-menu div:hover{
+  background:var(--accent);
+  color:#fff;
+}
+
+.theme-menu.show{
+  display:block;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Voice Guess Pro</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<div class="app">
+
+  <header>
+    <h1>🎤 Voice Guess</h1>
+    <p>Guess a number between <strong>1 - 100</strong></p>
+  </header>
+
+  <div class="card">
+
+    <!-- MIC -->
+    <div class="mic-container">
+      <div class="mic" id="micBtn">🎙️</div>
+      <div class="wave" id="wave"></div>
+    </div>
+
+    <p id="status">Click mic & speak</p>
+
+    <div id="msg" class="msg"></div>
+
+    <!-- FALLBACK -->
+    <input id="manualInput" placeholder="or type number..." />
+    <button id="submitBtn">Submit</button>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

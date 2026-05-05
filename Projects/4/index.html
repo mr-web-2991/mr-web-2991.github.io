@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fintech Exchange</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="card">
+
+    <img src="img/money.png" class="money-img" alt="Money Icon">
+
+    <h1>Exchange</h1>
+    <p>Realtime currency conversion</p>
+
+    <!-- FROM -->
+    <div class="currency">
+      <label class="sr-only" for="currency-one">From Currency</label>
+      <select id="currency-one" aria-label="From Currency"></select>
+
+      <label class="sr-only" for="amount-one">Amount</label>
+      <input type="number" id="amount-one" value="1" placeholder="0">
+    </div>
+
+    <!-- SWAP -->
+    <div class="swap">
+      <button id="swap" aria-label="Swap currencies">⇅</button>
+      <span id="rate"></span>
+    </div>
+
+    <!-- TO -->
+    <div class="currency">
+      <label class="sr-only" for="currency-two">To Currency</label>
+      <select id="currency-two" aria-label="To Currency"></select>
+
+      <label class="sr-only" for="amount-two">Converted Amount</label>
+      <input type="number" id="amount-two" placeholder="0">
+    </div>
+
+    <div id="status" class="status"></div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

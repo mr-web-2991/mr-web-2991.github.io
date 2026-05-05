@@ -1,0 +1,163 @@
+:root{
+  --bg:#020617;
+  --card:#0f172a;
+  --accent:#6366f1;
+  --danger:#ef4444;
+  --text:#e2e8f0;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:system-ui;
+  background:radial-gradient(circle at top,#6366f1,#020617);
+  color:var(--text);
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+  align-items:center;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+}
+
+/* BUTTONS */
+.btn{
+  border:none;
+  padding:10px 16px;
+  border-radius:12px;
+  cursor:pointer;
+  background:#1e293b;
+  color:white;
+}
+
+.btn.primary{
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+}
+
+.btn.danger{
+  background:var(--danger);
+}
+
+.btn.full{
+  width:100%;
+}
+
+/* MAIN */
+.main{
+  text-align:center;
+}
+
+/* CARDS */
+.cards{
+  position:relative;
+  height:300px;
+  width:400px;
+  margin:40px auto;
+  perspective:1000px;
+}
+
+.card{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:20px;
+  background:var(--card);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+  transform:translateX(50%) scale(.9);
+  opacity:0;
+  transition:.4s;
+}
+
+.card.active{
+  transform:translateX(0) scale(1);
+  opacity:1;
+  z-index:10;
+}
+
+.card.left{
+  transform:translateX(-50%) scale(.8);
+}
+
+.inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:.5s;
+}
+
+.card.flip .inner{
+  transform:rotateY(180deg);
+}
+
+.front,.back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backface-visibility:hidden;
+  padding:20px;
+}
+
+.back{
+  transform:rotateY(180deg);
+}
+
+/* NAV */
+.navigation{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+/* PANEL */
+.panel{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+
+.panel.show{
+  display:flex;
+}
+
+.panel-content{
+  background:var(--card);
+  padding:30px;
+  border-radius:20px;
+  width:350px;
+}
+
+.panel-content textarea{
+  width:100%;
+  margin:10px 0;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+}
+
+/* EMPTY */
+.empty{
+  opacity:.5;
+  margin-top:20px;
+}
