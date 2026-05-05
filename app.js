@@ -13,23 +13,6 @@ btn.onclick = () => {
 };
 
 // =======================
-// HIDE BTN ON SCROLL
-// =======================
-let last = 0;
-
-window.addEventListener("scroll", () => {
-  const current = window.scrollY;
-
-  if (current > last && current > 50) {
-    btn.classList.add("hide");
-  } else {
-    btn.classList.remove("hide");
-  }
-
-  last = current;
-});
-
-// =======================
 // PROJECTS GRID + 3D FX
 // =======================
 const grid = document.getElementById("grid");
@@ -77,6 +60,30 @@ for (let i = 1; i <= 20; i++) {
 }
 
 // =======================
+// SCROLL ENGINE (🔥 FIX)
+// =======================
+let last = 0;
+const hero = document.querySelector(".hero");
+
+window.addEventListener("scroll", () => {
+  const current = window.scrollY;
+
+  // hide button
+  if (current > last && current > 50) {
+    btn.classList.add("hide");
+  } else {
+    btn.classList.remove("hide");
+  }
+
+  // parallax (smooth)
+  if (hero) {
+    hero.style.transform = `translateY(${current * 0.2}px)`;
+  }
+
+  last = current;
+});
+
+// =======================
 // LOADER + PAGE FADE
 // =======================
 window.addEventListener("load", () => {
@@ -106,16 +113,16 @@ document.addEventListener("mousemove", (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 
-  if(cursor){
+  if (cursor) {
     cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
   }
 });
 
-function animateCursor(){
+function animateCursor() {
   posX += (mouseX - posX) * 0.12;
   posY += (mouseY - posY) * 0.12;
 
-  if(follower){
+  if (follower) {
     follower.style.transform = `translate(${posX}px, ${posY}px)`;
   }
 
@@ -125,25 +132,15 @@ function animateCursor(){
 animateCursor();
 
 // =======================
-// HERO PARALLAX
+// SMOOTH LINKS
 // =======================
-const hero = document.querySelector(".hero");
-
-window.addEventListener("scroll", () => {
-  const scroll = window.scrollY;
-
-  if(hero){
-    hero.style.transform = `translateY(${scroll * 0.25}px)`;
-  }
-});
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e){
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
 
     const target = document.querySelector(this.getAttribute("href"));
 
-    if(target){
+    if (target) {
       target.scrollIntoView({
         behavior: "smooth",
         block: "start"
