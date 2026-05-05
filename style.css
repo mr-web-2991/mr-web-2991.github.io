@@ -262,9 +262,9 @@ body{
   font-size: 40px;
   font-weight: 800;
   margin-bottom: 20px;
-  background: linear-gradient(135deg,#6366f1,#22d3ee);
-  -webkit-background-clip: text;
-  color: transparent;
+    background: linear-gradient(135deg, #6366f1, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;  color: transparent;
 }
 
 .loader-bar {
@@ -287,4 +287,79 @@ body{
 @keyframes loading {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(300%); }
+}
+
+.grid .card {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.grid .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(99, 102, 241, 0.25),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.grid .card:hover::before {
+  opacity: 1;
+}
+
+.grid .card:hover {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+/* CUSTOM CURSOR */
+.cursor,
+.cursor-follower{
+ position:fixed;
+ top:0;
+ left:0;
+ pointer-events:none;
+ z-index:9999;
+ border-radius:50%;
+ transform:translate(-50%,-50%);
+}
+
+.cursor{
+ width:6px;
+ height:6px;
+ background:#fff;
+}
+
+.cursor-follower{
+ width:32px;
+ height:32px;
+ background:rgba(99,102,241,0.2);
+
+/* FIX */
+ -webkit-backdrop-filter: blur(10px);
+ backdrop-filter: blur(10px);
+
+ transition:transform .12s ease;
+}
+
+@supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+  .cursor-follower{
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* PAGE FADE */
+body{
+ opacity:0;
+ transition:opacity .6s ease;
+}
+
+body.loaded{
+ opacity:1;
 }
