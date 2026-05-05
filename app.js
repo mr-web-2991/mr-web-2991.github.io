@@ -1,39 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // =======================
-  // THEME SYSTEM
-  // =======================
-  const root = document.documentElement;
-  const btn = document.getElementById("themeBtn");
-
-  root.setAttribute("data-theme", localStorage.getItem("theme") || "dark");
-
-  btn.onclick = () => {
-    const t = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-    root.setAttribute("data-theme", t);
-    localStorage.setItem("theme", t);
-  };
-
-  // =======================
-  // HIDE BTN ON SCROLL
-  // =======================
-  let last = 0;
-
-  window.addEventListener("scroll", () => {
-    const current = window.scrollY;
-
-    if (current > last && current > 50) {
-      btn.classList.add("hide");
-    } else {
-      btn.classList.remove("hide");
-    }
-
-    last = current;
+  // =====================
+  // LENIS SMOOTH SCROLL
+  // =====================
+  const lenis = new Lenis({
+    smooth: true,
+    lerp: 0.08
   });
 
-  // =======================
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // =====================
   // PROJECTS
-  // =======================
+  // =====================
   const projects = [
     { name: "Voice Command Interface", folder: 19 },
     { name: "Voice Controlled Guessing Game", folder: 18 },
@@ -58,66 +41,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const grid = document.getElementById("grid");
 
-  if (!grid) {
-    console.error("Grid not found ❌");
-    return;
-  }
-
-  projects.forEach((project) => {
+  projects.forEach(p => {
     const el = document.createElement("div");
     el.className = "card";
+    el.innerHTML = `<h3>${p.name}</h3>`;
 
-    el.innerHTML = `<h3>${project.name}</h3>`;
+    el.onclick = () => window.open(`Projects/${p.folder}/index.html`);
 
-    el.onclick = () =>
-      window.open(`Projects/${project.folder}/index.html`, "_blank");
+    // PARALLAX LIGHT
+    el.addEventListener("mousemove", (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      el.style.setProperty("--x", `${x}px`);
+      el.style.setProperty("--y", `${y}px`);
+    });
 
     grid.appendChild(el);
   });
 
-});
+  // =====================
+  // CURSOR
+  // =====================
+  const cursor = document.querySelector(".cursor");
+  const follower = document.querySelector(".cursor-follower");
 
-// =======================
-// CURSOR SYSTEM
-// =======================
-const cursor = document.querySelector(".cursor");
-const follower = document.querySelector(".cursor-follower");
+  let mouseX = 0, mouseY = 0;
+  let posX = 0, posY = 0;
 
-let posX = 0;
-let posY = 0;
-let mouseX = 0;
-let mouseY = 0;
-
-document.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-
-  cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-});
-
-// smooth follow (cinematic feel)
-function animateCursor() {
-  posX += (mouseX - posX) * 0.15;
-  posY += (mouseY - posY) * 0.15;
-
-  follower.style.transform = `translate(${posX}px, ${posY}px)`;
-
-  requestAnimationFrame(animateCursor);
-}
-
-animateCursor();
-
-// hover interactions
-const hoverElements = document.querySelectorAll("a, button, .card");
-
-hoverElements.forEach(el => {
-  el.addEventListener("mouseenter", () => {
-    cursor.classList.add("active");
-    follower.classList.add("active");
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
   });
 
-  el.addEventListener("mouseleave", () => {
-    cursor.classList.remove("active");
-    follower.classList.remove("active");
+  function animateCursor(){
+    posX += (mouseX - posX) * 0.15;
+    posY += (mouseY - posY) * 0.15;
+
+    follower.style.transform = `translate(${posX}px, ${posY}px)`;
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  // =====================
+  // MAGNETIC BUTTONS
+  // =====================
+  document.querySelectorAll(".card, .btn, a").forEach(el => {
+    el.addEventListener("mousemove", e => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width/2;
+      const y = e.clientY - rect.top - rect.height/2;
+
+      el.style.transform = `translate(${x*0.15}px, ${y*0.15}px)`;
+    });
+
+    el.addEventListener("mouseleave", () => {
+      el.style.transform = "";
+    });
   });
+
+  // =====================
+  // GLOW FOLLOW
+  // =====================
+  const glow = document.querySelector(".glow");
+
+  document.addEventListener("mousemove", e => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+  });
+
 });

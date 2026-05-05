@@ -15,7 +15,11 @@
  --border:rgba(0,0,0,0.08);
 }
 
-*{box-sizing:border-box;margin:0;padding:0;}
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
 
 body{
  font-family:system-ui;
@@ -63,17 +67,17 @@ body{
 .grid{
  width:100%;
  max-width:1200px;
+ margin:auto;
  display:grid;
  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
  gap:24px;
+ padding:40px 20px;
 }
 
 /* CARD */
-.grid .card{
- display:flex;
- align-items:center;
- justify-content:center;
- min-height:120px;
+.card{
+ position:relative;
+ padding:30px;
  border-radius:20px;
  background:var(--glass);
  border:1px solid var(--border);
@@ -83,12 +87,15 @@ body{
 
  cursor:pointer;
  transition:.4s;
- position:relative;
  overflow:hidden;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
 }
 
-/* HOVER EFFECT */
-.grid .card::before{
+/* HOVER LIGHT */
+.card::before{
  content:"";
  position:absolute;
  inset:0;
@@ -97,11 +104,11 @@ body{
  transition:.4s;
 }
 
-.grid .card:hover::before{
+.card:hover::before{
  opacity:1;
 }
 
-.grid .card:hover{
+.card:hover{
  transform:translateY(-10px) scale(1.03);
  box-shadow:0 25px 60px rgba(0,0,0,.6);
 }
@@ -113,15 +120,10 @@ body{
  padding:80px 20px;
 }
 
-.card{
- padding:28px;
- border-radius:20px;
+.contact-section .card{
  max-width:500px;
  width:100%;
- border:1px solid var(--border);
-
- -webkit-backdrop-filter:blur(20px);
- backdrop-filter:blur(20px);
+ flex-direction:column;
 }
 
 /* DARK */
@@ -129,7 +131,7 @@ body{
  background:linear-gradient(135deg,#1e293b,#0f172a);
 }
 
-/* LIGHT FIX */
+/* LIGHT */
 [data-theme="light"] .card{
  background:linear-gradient(135deg,#ffffff,#eef2ff);
  color:#0f172a;
@@ -176,11 +178,6 @@ body{
  box-shadow:0 12px 30px rgba(37,211,102,.5);
 }
 
-.wa-icon{
- width:18px;
- height:18px;
-}
-
 /* RESUME */
 .resume-link{
  display:flex;
@@ -204,7 +201,7 @@ body{
  border-color:var(--primary);
 }
 
-/* REMOTE CONTRACT */
+/* JOB */
 .job{
  text-align:center;
  margin-top:20px;
@@ -221,10 +218,12 @@ body{
  height:56px;
  border-radius:16px;
  border:none;
+
  display:flex;
  align-items:center;
  justify-content:center;
  font-size:22px;
+
  background:rgba(255,255,255,0.08);
 
  -webkit-backdrop-filter:blur(20px);
@@ -240,47 +239,4 @@ body{
  transform:translateY(-120px);
  opacity:0;
  pointer-events:none;
-}
-
-/* =========================
-   CURSOR SYSTEM
-========================= */
-
-body {
-  cursor: none;
-}
-
-/* main dot */
-.cursor {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s ease;
-}
-
-/* smooth follower */
-.cursor-follower {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transition: all 0.15s ease-out;
-}
-
-/* hover state */
-.cursor.active {
-  transform: scale(1.8);
-  background: var(--primary);
-}
-
-.cursor-follower.active {
-  transform: scale(1.6);
-  border-color: var(--accent);
 }

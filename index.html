@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Portfolio</title>
-<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="style.css" />
+
+<!-- Lenis smooth scroll -->
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+
 </head>
 
+<body>
+
+<!-- Cursor -->
 <div class="cursor"></div>
 <div class="cursor-follower"></div>
 
-<body>
+<!-- Glow -->
+<div class="glow"></div>
 
 <button id="themeBtn" class="btn">🌙</button>
 
@@ -25,51 +34,33 @@
 </section>
 
 <section class="contact-section">
-  <div class="card">
-
+  <div class="card contact-card">
     <h3>Hire Me</h3>
 
     <p>Name: Mohamed Abo-Bakr</p>
 
     <p>
       Email:
-      <a href="mailto:mr.web.2991@gmail.com"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="link">
+      <a href="mailto:mr.web.2991@gmail.com" class="link">
         mr.web.2991@gmail.com
       </a>
     </p>
 
     <div class="actions">
-
-      <a href="https://api.whatsapp.com/send?phone=201127578871"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="whatsapp-link">
-
-        <svg viewBox="0 0 32 32" class="wa-icon">
-          <path fill="white"
-            d="M16 .396C7.164.396 0 7.56 0 16.396c0 2.885.755 5.708 2.188 8.188L.396 32l7.64-1.792a15.92 15.92 0 0 0 7.964 2.188h.004c8.836 0 16-7.164 16-16S24.836.396 16 .396zm0 29.168c-2.53 0-5.012-.68-7.164-1.968l-.512-.304-4.528 1.064 1.208-4.416-.332-.56a13.373 13.373 0 0 1-2.056-7.084c0-7.4 6.02-13.42 13.42-13.42 7.4 0 13.42 6.02 13.42 13.42 0 7.4-6.02 13.42-13.42 13.42z"/>
-        </svg>
-
+      <a href="https://api.whatsapp.com/send?phone=201127578871" class="whatsapp-link">
         Chat on WhatsApp
       </a>
 
-      <a href="./Mohamed%20Abobakr%20-%20Resume.pdf"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="resume-link">
+      <a href="Mohamed Abobakr - Resume.pdf" class="resume-link">
         Resume
       </a>
-
     </div>
 
     <p class="job"><strong>Remote Contract</strong></p>
-
   </div>
 </section>
 
-<script src="app.js"></script>
+<script src="app.js" defer></script>
+
 </body>
 </html>
