@@ -76,3 +76,48 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+// =======================
+// CURSOR SYSTEM
+// =======================
+const cursor = document.querySelector(".cursor");
+const follower = document.querySelector(".cursor-follower");
+
+let posX = 0;
+let posY = 0;
+let mouseX = 0;
+let mouseY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+});
+
+// smooth follow (cinematic feel)
+function animateCursor() {
+  posX += (mouseX - posX) * 0.15;
+  posY += (mouseY - posY) * 0.15;
+
+  follower.style.transform = `translate(${posX}px, ${posY}px)`;
+
+  requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+// hover interactions
+const hoverElements = document.querySelectorAll("a, button, .card");
+
+hoverElements.forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    cursor.classList.add("active");
+    follower.classList.add("active");
+  });
+
+  el.addEventListener("mouseleave", () => {
+    cursor.classList.remove("active");
+    follower.classList.remove("active");
+  });
+});

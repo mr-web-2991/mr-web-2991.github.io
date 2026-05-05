@@ -241,3 +241,46 @@ body{
  opacity:0;
  pointer-events:none;
 }
+
+/* =========================
+   CURSOR SYSTEM
+========================= */
+
+body {
+  cursor: none;
+}
+
+/* main dot */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+/* smooth follower */
+.cursor-follower {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.15s ease-out;
+}
+
+/* hover state */
+.cursor.active {
+  transform: scale(1.8);
+  background: var(--primary);
+}
+
+.cursor-follower.active {
+  transform: scale(1.6);
+  border-color: var(--accent);
+}
