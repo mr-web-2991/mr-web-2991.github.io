@@ -137,20 +137,17 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// =======================
-// SMOOTH SCROLL (PHYSICS)
-// =======================
-let target = 0;
-let currentScroll = 0;
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function(e){
+    e.preventDefault();
 
-window.addEventListener("scroll", () => {
-  target = window.scrollY;
+    const target = document.querySelector(this.getAttribute("href"));
+
+    if(target){
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  });
 });
-
-function smoothScroll(){
-  currentScroll += (target - currentScroll) * 0.08;
-  window.scrollTo(0, currentScroll);
-  requestAnimationFrame(smoothScroll);
-}
-
-smoothScroll();
