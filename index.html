@@ -1,27 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio</title>
-
-<link rel="stylesheet" href="style.css" />
-
-<!-- Lenis smooth scroll -->
-<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Cursor -->
-<div class="cursor"></div>
-<div class="cursor-follower"></div>
+<!-- 🔥 Cinematic Cursor -->
+<div class="cursor-dot"></div>
+<div class="cursor-glow"></div>
 
-<!-- Glow -->
-<div class="glow"></div>
-
-<button id="themeBtn" class="btn">🌙</button>
+<button id="themeBtn" class="btn magnetic">🌙</button>
 
 <section class="hero">
   <div class="title">Mohamed Abo-Bakr</div>
@@ -34,7 +26,8 @@
 </section>
 
 <section class="contact-section">
-  <div class="card contact-card">
+  <div class="card contact-card magnetic">
+
     <h3>Hire Me</h3>
 
     <p>Name: Mohamed Abo-Bakr</p>
@@ -47,20 +40,22 @@
     </p>
 
     <div class="actions">
-      <a href="https://api.whatsapp.com/send?phone=201127578871" class="whatsapp-link">
-        Chat on WhatsApp
-      </a>
 
-      <a href="Mohamed Abobakr - Resume.pdf" class="resume-link">
+      <a href="https://api.whatsapp.com/send?phone=201127578871" class="whatsapp-link"></a>
+
+      <a href="Mohamed Abobakr - Resume.pdf"
+         target="_blank"
+         class="resume-link magnetic">
         Resume
       </a>
+
     </div>
 
     <p class="job"><strong>Remote Contract</strong></p>
+
   </div>
 </section>
 
 <script src="app.js" defer></script>
-
 </body>
 </html>

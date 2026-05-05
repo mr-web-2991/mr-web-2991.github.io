@@ -240,3 +240,45 @@ body{
  opacity:0;
  pointer-events:none;
 }
+
+/* =========================
+   🔥 CINEMATIC CURSOR
+========================= */
+.cursor-dot{
+ position:fixed;
+ width:6px;
+ height:6px;
+ background:#fff;
+ border-radius:50%;
+ pointer-events:none;
+ z-index:9999;
+ transform:translate(-50%,-50%);
+}
+
+.cursor-glow{
+ position:fixed;
+ width:200px;
+ height:200px;
+ background:radial-gradient(circle, rgba(99,102,241,0.35), transparent 70%);
+ border-radius:50%;
+ pointer-events:none;
+ z-index:9998;
+ transform:translate(-50%,-50%);
+ filter:blur(40px);
+ transition:transform .15s ease-out;
+}
+
+/* =========================
+   🔥 MAGNETIC EFFECT
+========================= */
+.magnetic{
+ transition:transform .2s ease;
+}
+
+/* =========================
+   🔥 CARD PARALLAX
+========================= */
+.card{
+ transform-style:preserve-3d;
+ perspective:1000px;
+}
