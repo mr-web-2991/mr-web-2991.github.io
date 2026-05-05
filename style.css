@@ -363,3 +363,9 @@ body{
 body.loaded{
  opacity:1;
 }
+/* FIX: CENTER HIRE ME TITLE */
+.contact-section .card h3{
+ text-align:center;
+ font-size:24px;
+ margin-bottom:12px;
+}
