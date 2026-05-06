@@ -1,13 +1,14 @@
 :root{
  --bg:#020617;
  --text:#e2e8f0;
- --glass:rgba(255,255,255,0.06);
- --border:rgba(255,255,255,0.1);
+ --glass:rgba(255,255,255,0.05);
+ --border:rgba(255,255,255,0.08);
 
  --primary:#6366f1;
  --accent:#22d3ee;
 }
 
+/* 🔥 PREMIUM LIGHT */
 [data-theme="light"]{
  --bg:#f8fafc;
  --text:#0f172a;
@@ -21,6 +22,7 @@ body{
  font-family:system-ui;
  background:var(--bg);
  color:var(--text);
+ transition:.3s;
 }
 
 /* HERO */
@@ -75,18 +77,25 @@ body{
  justify-content:center;
  min-height:120px;
  border-radius:20px;
- background:var(--glass);
  border:1px solid var(--border);
-
- -webkit-backdrop-filter: blur(20px);
- backdrop-filter: blur(20px);
-
  cursor:pointer;
- transition:.4s;
+ transition:.3s;
 }
 
+/* DARK CARD */
+:root .grid .card{
+ background:linear-gradient(135deg,#1e293b,#0f172a);
+}
+
+/* LIGHT CARD */
+[data-theme="light"] .grid .card{
+ background:#ffffff;
+ box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+/* HOVER */
 .grid .card:hover{
- transform:translateY(-8px);
+ transform:translateY(-6px);
 }
 
 /* CONTACT */
@@ -102,18 +111,17 @@ body{
  max-width:500px;
  width:100%;
  border:1px solid var(--border);
-
- -webkit-backdrop-filter: blur(20px);
- backdrop-filter: blur(20px);
 }
 
+/* DARK CONTACT */
 :root .card{
  background:linear-gradient(135deg,#1e293b,#0f172a);
 }
 
+/* LIGHT CONTACT */
 [data-theme="light"] .card{
  background:#ffffff;
- box-shadow:0 10px 40px rgba(0,0,0,.08);
+ box-shadow:0 12px 40px rgba(0,0,0,.08);
 }
 
 /* LINKS */
@@ -144,8 +152,10 @@ body{
  background:linear-gradient(135deg,#25D366,#128C7E);
  color:#fff;
  text-decoration:none;
+ font-weight:600;
 }
 
+/* ICON */
 .wa-icon{
  width:18px;
  height:18px;
@@ -169,7 +179,7 @@ body{
  font-weight:600;
 }
 
-/* THEME BTN */
+/* 🔥 THEME BTN FIXED */
 .btn{
  position:fixed;
  top:20px;
@@ -183,10 +193,10 @@ body{
  justify-content:center;
  font-size:20px;
 
- background: rgba(255,255,255,0.1);
+ background:rgba(255,255,255,0.1);
 
- -webkit-backdrop-filter: blur(20px);
- backdrop-filter: blur(20px);
+ backdrop-filter:blur(20px);
+ -webkit-backdrop-filter:blur(20px);
 
  cursor:pointer;
  z-index:9999;
