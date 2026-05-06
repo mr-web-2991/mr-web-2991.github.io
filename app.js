@@ -48,7 +48,7 @@ projects.forEach((p) => {
 });
 
 // =======================
-// 🔥 CURSOR SYSTEM
+// CURSOR
 // =======================
 const dot = document.querySelector(".cursor-dot");
 const glow = document.querySelector(".cursor-glow");
@@ -78,10 +78,12 @@ function animateGlow(){
 animateGlow();
 
 // =======================
-// 🔥 MAGNETIC EFFECT
+// MAGNETIC (SAFE CLICK)
 // =======================
 document.querySelectorAll(".magnetic").forEach(el=>{
   el.addEventListener("mousemove", (e)=>{
+    if(e.target.tagName === "A") return;
+
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width/2;
     const y = e.clientY - rect.top - rect.height/2;
@@ -95,7 +97,7 @@ document.querySelectorAll(".magnetic").forEach(el=>{
 });
 
 // =======================
-// 🔥 CARD PARALLAX
+// CARD PARALLAX
 // =======================
 document.querySelectorAll(".card").forEach(card=>{
   card.addEventListener("mousemove",(e)=>{
