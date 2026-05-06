@@ -9,36 +9,12 @@ btn.onclick = () => {
  localStorage.setItem("theme", t);
 };
 
-/* PROJECTS */
-const projects = [
-"Voice Command Interface",
-"Voice Controlled Guessing Game",
-"E-commerce Store Interface",
-"Wealth Analytics Dashboard",
-"Typing Speed Test App",
-"Expense Tracker",
-"Authentication Form",
-"Custom Video Player",
-"Breakout Game",
-"Hangman Game",
-"Breathing Exercise App",
-"Blog Platform UI",
-"Lyrics Search App",
-"Meal Finder App",
-"Flashcards App",
-"Landing Page UI",
-"Cinema Booking System",
-"Music Player SaaS",
-"New Year Countdown",
-"Extra Project"
-];
-
 const grid = document.getElementById("grid");
 
-projects.forEach((name, i) => {
+for(let i = 1; i <= 20; i++){
  const el = document.createElement("div");
  el.className = "card";
- el.innerHTML = `<h3>${name}</h3>`;
- el.onclick = () => window.open(`Projects/${i+1}/index.html`, "_blank");
+ el.innerHTML = `<h3>Project ${i}</h3>`;
+ el.onclick = () => window.open(`Projects/${i}/index.html`, "_blank");
  grid.appendChild(el);
-});
+}
