@@ -3,44 +3,53 @@
 // =======================
 const root = document.documentElement;
 const btn = document.getElementById("themeBtn");
+const themeIcon = document.querySelector(".theme-icon");
+const themeName = document.querySelector(".theme-name");
 
 const themes = [
-  { name: "dark", icon: "🌙" },
-  { name: "light", icon: "☀️" },
-  { name: "aurora", icon: "✦" }
+  { name: "dark", label: "Dark", icon: "🌙" },
+  { name: "light", label: "Light", icon: "☀️" },
+  { name: "royal", label: "Royal", icon: "✦" }
 ];
 
 const savedTheme = localStorage.getItem("theme") || "dark";
 root.setAttribute("data-theme", savedTheme);
 
-function updateThemeIcon() {
-  const current = root.getAttribute("data-theme");
-  const theme = themes.find((item) => item.name === current) || themes[0];
-  btn.textContent = theme.icon;
+function updateThemeButton() {
+  const currentTheme = root.getAttribute("data-theme");
+  const theme = themes.find((item) => item.name === currentTheme) || themes[0];
+
+  themeIcon.textContent = theme.icon;
+  themeName.textContent = theme.label;
 }
 
-updateThemeIcon();
+updateThemeButton();
 
 btn.addEventListener("click", () => {
-  const current = root.getAttribute("data-theme");
-  const currentIndex = themes.findIndex((item) => item.name === current);
-  const nextTheme = themes[(currentIndex + 1) % themes.length].name;
+  const currentTheme = root.getAttribute("data-theme");
+  const currentIndex = themes.findIndex((item) => item.name === currentTheme);
+  const nextTheme = themes[(currentIndex + 1) % themes.length];
 
-  root.setAttribute("data-theme", nextTheme);
-  localStorage.setItem("theme", nextTheme);
-  updateThemeIcon();
+  root.setAttribute("data-theme", nextTheme.name);
+  localStorage.setItem("theme", nextTheme.name);
+  updateThemeButton();
 });
 
 // =======================
-// CINEMATIC CURSOR MOTION
+// SEXY CURSOR MOTION
 // =======================
 const cursorDot = document.querySelector(".cursor-dot");
 const cursorRing = document.querySelector(".cursor-ring");
+const cursorShadow = document.querySelector(".cursor-shadow");
 
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
+
 let ringX = mouseX;
 let ringY = mouseY;
+
+let shadowX = mouseX;
+let shadowY = mouseY;
 
 window.addEventListener("mousemove", (event) => {
   mouseX = event.clientX;
@@ -54,25 +63,31 @@ function animateCursor() {
   ringX += (mouseX - ringX) * 0.16;
   ringY += (mouseY - ringY) * 0.16;
 
+  shadowX += (mouseX - shadowX) * 0.08;
+  shadowY += (mouseY - shadowY) * 0.08;
+
   cursorRing.style.left = `${ringX}px`;
   cursorRing.style.top = `${ringY}px`;
+
+  cursorShadow.style.left = `${shadowX}px`;
+  cursorShadow.style.top = `${shadowY}px`;
 
   requestAnimationFrame(animateCursor);
 }
 
 animateCursor();
 
-const interactiveElements = document.querySelectorAll("a, button, .card");
+function bindCursorHover() {
+  document.querySelectorAll("a, button, .card").forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+      cursorRing.classList.add("active");
+    });
 
-interactiveElements.forEach((element) => {
-  element.addEventListener("mouseenter", () => {
-    cursorRing.classList.add("active");
+    element.addEventListener("mouseleave", () => {
+      cursorRing.classList.remove("active");
+    });
   });
-
-  element.addEventListener("mouseleave", () => {
-    cursorRing.classList.remove("active");
-  });
-});
+}
 
 // =======================
 // PROJECTS DATA
@@ -111,13 +126,19 @@ const grid = document.getElementById("grid");
 projects.forEach((project, index) => {
   const el = document.createElement("div");
   el.className = "card";
-  el.style.animation = `fadeUp 0.7s ease ${index * 45}ms both`;
+  el.style.animation = `fadeUp .7s ease ${index * 45}ms both`;
 
   el.innerHTML = `<h3>${project.name}</h3>`;
 
   el.addEventListener("click", () => {
-    window.open(`Projects/${project.folder}/index.html`, "_blank", "noopener,noreferrer");
+    window.open(
+      `Projects/${project.folder}/index.html`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   });
 
   grid.appendChild(el);
 });
+
+bindCursorHover();
