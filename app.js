@@ -1,6 +1,3 @@
-// =======================
-// THEME SYSTEM
-// =======================
 const root = document.documentElement;
 const btn = document.getElementById("themeBtn");
 const themeIcon = document.querySelector(".theme-icon");
@@ -40,9 +37,6 @@ btn.addEventListener("click", () => {
   updateThemeButton();
 });
 
-// =======================
-// CURSOR MOTION
-// =======================
 const cursorDot = document.querySelector(".cursor-dot");
 const cursorRing = document.querySelector(".cursor-ring");
 const cursorShadow = document.querySelector(".cursor-shadow");
@@ -50,10 +44,8 @@ const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
 
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
-
 let ringX = mouseX;
 let ringY = mouseY;
-
 let shadowX = mouseX;
 let shadowY = mouseY;
 
@@ -100,9 +92,6 @@ if (hasFinePointer) {
   animateCursor();
 }
 
-// =======================
-// PROJECTS DATA
-// =======================
 const projects = [
   { name: "Voice Command Interface", folder: 19 },
   { name: "Voice Controlled Guessing Game", folder: 18 },
@@ -129,9 +118,6 @@ const projects = [
   { name: "New Year Countdown", folder: 15 }
 ];
 
-// =======================
-// RENDER PROJECTS
-// =======================
 const grid = document.getElementById("grid");
 
 grid.innerHTML = "";
