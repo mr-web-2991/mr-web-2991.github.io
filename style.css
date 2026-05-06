@@ -1,18 +1,17 @@
 :root{
  --bg:#020617;
  --text:#e2e8f0;
- --glass:rgba(255,255,255,0.05);
- --border:rgba(255,255,255,0.08);
+ --glass:rgba(255,255,255,0.06);
+ --border:rgba(255,255,255,0.1);
 
  --primary:#6366f1;
  --accent:#22d3ee;
 }
 
-/* 🔥 PREMIUM LIGHT */
 [data-theme="light"]{
- --bg:#f8fafc;
+ --bg:linear-gradient(180deg,#f8fafc,#eef2ff);
  --text:#0f172a;
- --glass:rgba(255,255,255,0.7);
+ --glass:#ffffff;
  --border:rgba(0,0,0,0.08);
 }
 
@@ -22,7 +21,6 @@ body{
  font-family:system-ui;
  background:var(--bg);
  color:var(--text);
- transition:.3s;
 }
 
 /* HERO */
@@ -77,25 +75,35 @@ body{
  justify-content:center;
  min-height:120px;
  border-radius:20px;
+ background:var(--glass);
  border:1px solid var(--border);
+
+ -webkit-backdrop-filter:blur(20px);
+ backdrop-filter:blur(20px);
+
  cursor:pointer;
- transition:.3s;
+ transition:.4s;
+ position:relative;
+ overflow:hidden;
 }
 
-/* DARK CARD */
-:root .grid .card{
- background:linear-gradient(135deg,#1e293b,#0f172a);
+/* HOVER EFFECT */
+.grid .card::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(120deg,transparent,rgba(255,255,255,.25),transparent);
+ opacity:0;
+ transition:.4s;
 }
 
-/* LIGHT CARD */
-[data-theme="light"] .grid .card{
- background:#ffffff;
- box-shadow:0 8px 25px rgba(0,0,0,.06);
+.grid .card:hover::before{
+ opacity:1;
 }
 
-/* HOVER */
 .grid .card:hover{
- transform:translateY(-6px);
+ transform:translateY(-10px) scale(1.03);
+ box-shadow:0 25px 60px rgba(0,0,0,.6);
 }
 
 /* CONTACT */
@@ -111,23 +119,31 @@ body{
  max-width:500px;
  width:100%;
  border:1px solid var(--border);
+
+ -webkit-backdrop-filter:blur(20px);
+ backdrop-filter:blur(20px);
 }
 
-/* DARK CONTACT */
+/* DARK */
 :root .card{
  background:linear-gradient(135deg,#1e293b,#0f172a);
 }
 
-/* LIGHT CONTACT */
+/* LIGHT FIX */
 [data-theme="light"] .card{
- background:#ffffff;
- box-shadow:0 12px 40px rgba(0,0,0,.08);
+ background:linear-gradient(135deg,#ffffff,#eef2ff);
+ color:#0f172a;
+ box-shadow:0 10px 40px rgba(0,0,0,.08);
 }
 
 /* LINKS */
 .link{
  color:var(--primary);
  text-decoration:none;
+}
+
+[data-theme="light"] .link{
+ color:#4f46e5;
 }
 
 /* ACTIONS */
@@ -152,10 +168,14 @@ body{
  background:linear-gradient(135deg,#25D366,#128C7E);
  color:#fff;
  text-decoration:none;
- font-weight:600;
+ transition:.3s;
 }
 
-/* ICON */
+.whatsapp-link:hover{
+ transform:translateY(-3px);
+ box-shadow:0 12px 30px rgba(37,211,102,.5);
+}
+
 .wa-icon{
  width:18px;
  height:18px;
@@ -163,41 +183,61 @@ body{
 
 /* RESUME */
 .resume-link{
+ display:flex;
+ align-items:center;
+ gap:8px;
  padding:10px 16px;
  border-radius:12px;
  background:var(--glass);
  border:1px solid var(--border);
  color:var(--text);
  text-decoration:none;
+ transition:.3s;
 }
 
-/* JOB */
+.resume-link::before{
+ content:"📄";
+}
+
+.resume-link:hover{
+ transform:translateY(-3px);
+ border-color:var(--primary);
+}
+
+/* REMOTE CONTRACT */
 .job{
  text-align:center;
  margin-top:20px;
- font-size:18px;
+ font-size:20px;
  font-weight:600;
 }
 
-/* 🔥 THEME BTN FIXED */
+/* THEME BTN */
 .btn{
  position:fixed;
  top:20px;
  right:20px;
- width:50px;
- height:50px;
- border-radius:12px;
+ width:56px;
+ height:56px;
+ border-radius:16px;
  border:none;
  display:flex;
  align-items:center;
  justify-content:center;
- font-size:20px;
+ font-size:22px;
+ background:rgba(255,255,255,0.08);
 
- background:rgba(255,255,255,0.1);
-
- backdrop-filter:blur(20px);
  -webkit-backdrop-filter:blur(20px);
+ backdrop-filter:blur(20px);
 
+ color:#fff;
  cursor:pointer;
- z-index:9999;
+ transition:.3s;
+ z-index:999;
+}
+
+.btn.hide{
+ transform:translateY(-120px);
+ opacity:0;
+ pointer-events:none;
 }
