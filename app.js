@@ -9,7 +9,8 @@ const themeName = document.querySelector(".theme-name");
 const themes = [
   { name: "dark", label: "Dark", icon: "🌙" },
   { name: "light", label: "Light", icon: "☀️" },
-  { name: "royal", label: "Royal", icon: "✦" }
+  { name: "royal", label: "Royal", icon: "✦" },
+  { name: "pink", label: "Sexy Pink", icon: "💖" }
 ];
 
 const savedTheme = localStorage.getItem("theme") || "dark";
@@ -45,6 +46,7 @@ btn.addEventListener("click", () => {
 const cursorDot = document.querySelector(".cursor-dot");
 const cursorRing = document.querySelector(".cursor-ring");
 const cursorShadow = document.querySelector(".cursor-shadow");
+const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
 
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
@@ -63,8 +65,6 @@ function moveCursor(event) {
   cursorDot.style.top = `${mouseY}px`;
 }
 
-window.addEventListener("mousemove", moveCursor);
-
 function animateCursor() {
   ringX += (mouseX - ringX) * 0.16;
   ringY += (mouseY - ringY) * 0.16;
@@ -81,9 +81,9 @@ function animateCursor() {
   requestAnimationFrame(animateCursor);
 }
 
-animateCursor();
-
 function bindCursorHover() {
+  if (!hasFinePointer) return;
+
   document.querySelectorAll("a, button, .card").forEach((element) => {
     element.addEventListener("mouseenter", () => {
       cursorRing.classList.add("active");
@@ -93,6 +93,11 @@ function bindCursorHover() {
       cursorRing.classList.remove("active");
     });
   });
+}
+
+if (hasFinePointer) {
+  window.addEventListener("mousemove", moveCursor);
+  animateCursor();
 }
 
 // =======================
@@ -133,27 +138,34 @@ grid.innerHTML = "";
 
 projects.forEach((project, index) => {
   const el = document.createElement("div");
+  const title = document.createElement("h3");
+
   el.className = "card";
+  el.setAttribute("role", "link");
+  el.setAttribute("tabindex", "0");
   el.style.animation = `fadeUp 0.7s ease ${index * 45}ms both`;
 
-  el.innerHTML = `<h3>${project.name}</h3>`;
+  title.textContent = project.name;
+  el.appendChild(title);
 
-  el.addEventListener("click", () => {
+  function openProject() {
     window.open(
       `Projects/${project.folder}/index.html`,
       "_blank",
       "noopener,noreferrer"
     );
+  }
+
+  el.addEventListener("click", openProject);
+
+  el.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openProject();
+    }
   });
 
   grid.appendChild(el);
 });
 
 bindCursorHover();
-
-// =======================
-// KEEP THEME BUTTON FIXED
-// =======================
-window.addEventListener("scroll", () => {
-  btn.classList.remove("hide");
-});
