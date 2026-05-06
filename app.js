@@ -13,7 +13,11 @@ const themes = [
 ];
 
 const savedTheme = localStorage.getItem("theme") || "dark";
-root.setAttribute("data-theme", savedTheme);
+const validSavedTheme = themes.some((theme) => theme.name === savedTheme)
+  ? savedTheme
+  : "dark";
+
+root.setAttribute("data-theme", validSavedTheme);
 
 function updateThemeButton() {
   const currentTheme = root.getAttribute("data-theme");
@@ -51,13 +55,15 @@ let ringY = mouseY;
 let shadowX = mouseX;
 let shadowY = mouseY;
 
-window.addEventListener("mousemove", (event) => {
+function moveCursor(event) {
   mouseX = event.clientX;
   mouseY = event.clientY;
 
   cursorDot.style.left = `${mouseX}px`;
   cursorDot.style.top = `${mouseY}px`;
-});
+}
+
+window.addEventListener("mousemove", moveCursor);
 
 function animateCursor() {
   ringX += (mouseX - ringX) * 0.16;
@@ -123,6 +129,8 @@ const projects = [
 // =======================
 const grid = document.getElementById("grid");
 
+grid.innerHTML = "";
+
 projects.forEach((project, index) => {
   const el = document.createElement("div");
   el.className = "card";
@@ -142,3 +150,10 @@ projects.forEach((project, index) => {
 });
 
 bindCursorHover();
+
+// =======================
+// KEEP THEME BUTTON FIXED
+// =======================
+window.addEventListener("scroll", () => {
+  btn.classList.remove("hide");
+});
