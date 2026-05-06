@@ -36,7 +36,7 @@ btn.addEventListener("click", () => {
 });
 
 // =======================
-// SEXY CURSOR MOTION
+// CURSOR MOTION
 // =======================
 const cursorDot = document.querySelector(".cursor-dot");
 const cursorRing = document.querySelector(".cursor-ring");
@@ -126,7 +126,7 @@ const grid = document.getElementById("grid");
 projects.forEach((project, index) => {
   const el = document.createElement("div");
   el.className = "card";
-  el.style.animation = `fadeUp .7s ease ${index * 45}ms both`;
+  el.style.animation = `fadeUp 0.7s ease ${index * 45}ms both`;
 
   el.innerHTML = `<h3>${project.name}</h3>`;
 
