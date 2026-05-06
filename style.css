@@ -197,22 +197,32 @@ button,
   position: fixed;
   top: 18px;
   right: 18px;
+
   height: 52px;
   min-width: 124px;
   padding: 0 14px;
+
   border-radius: 18px;
   border: 1px solid var(--border);
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+
   background: linear-gradient(135deg, var(--strong-glass), var(--glass));
   color: var(--text);
+
   -webkit-backdrop-filter: blur(22px);
   backdrop-filter: blur(22px);
+
   box-shadow: 0 18px 50px var(--shadow);
-  z-index: 2147483647;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+  z-index: 999999;
+
+  /* 🔥 أهم سطرين */
+  transform: none !important;
+  will-change: auto;
 }
 
 .theme-btn:hover {
