@@ -177,7 +177,7 @@ button,
   left: 0;
   top: 0;
   pointer-events: none;
-  z-index: 10000002;
+  z-index: 2147483647 !important;
   transform: translate(-50%, -50%);
 }
 
@@ -237,7 +237,7 @@ button,
   -webkit-backdrop-filter: blur(22px);
   backdrop-filter: blur(22px);
   box-shadow: 0 18px 50px var(--shadow);
-  z-index: 10000000;
+  z-index: 2147483646 !important;
   transform: translate3d(0, 0, 0);
   pointer-events: auto;
 }
