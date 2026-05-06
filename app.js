@@ -5,7 +5,7 @@ const themeName = document.querySelector(".theme-name");
 
 const themes = [
   { name: "dark", label: "Dark", icon: "🌙" },
-  { name: "light", label: "Light", icon: "☀️" },
+  { name: "light", label: "White", icon: "☀️" },
   { name: "royal", label: "Royal", icon: "✦" },
   { name: "pink", label: "Sexy Pink", icon: "💖" }
 ];
@@ -97,21 +97,17 @@ const projects = [
   { name: "Voice Controlled Guessing Game", folder: 18 },
   { name: "E-commerce Store Interface", folder: 16 },
   { name: "Wealth Analytics Dashboard", folder: 3 },
-
   { name: "Typing Speed Test App", folder: 20 },
   { name: "Expense Tracker", folder: 5 },
   { name: "Authentication Form", folder: 6 },
   { name: "Custom Video Player", folder: 2 },
-
   { name: "Breakout Game", folder: 1 },
   { name: "Hangman Game", folder: 7 },
   { name: "Breathing Exercise App", folder: 17 },
-
   { name: "Blog Platform UI", folder: 8 },
   { name: "Lyrics Search App", folder: 9 },
   { name: "Meal Finder App", folder: 10 },
   { name: "Flashcards App", folder: 11 },
-
   { name: "Landing Page UI", folder: 12 },
   { name: "Cinema Booking System", folder: 13 },
   { name: "Music Player SaaS", folder: 14 },
